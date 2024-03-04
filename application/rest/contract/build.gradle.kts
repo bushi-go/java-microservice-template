@@ -5,18 +5,13 @@
  */
 
 plugins {
-    id("com.it.example.java-spring-application-conventions")
+    id("com.it.example.java-spring-library-conventions")
 }
 
 dependencies {
     // Internal modules dependencies
-    implementation(project(":domain:contract"))
+    api(project(":domain:contract"))
 
     // External dependencies
 
-}
-
-application {
-    // Define the main class for the application.
-    mainClass.set("com.it.example.app.App")
 }

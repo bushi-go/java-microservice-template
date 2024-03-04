@@ -65,36 +65,40 @@ tasks.withType<Test> {
 tasks.named<JavaCompile>("compileTestJava") {
     options.encoding = "UTF8"
 }
-project.name =
-group = rootProject.group + project.name
+
 
 if (project.hasProperty("overrideVersion")) {
     project.version = project.properties["overrideVersion"]!!
 } else {
     project.version = "0.0.0-SNAPSHOT"
 }
+if (project.hasProperty("artifactRepositoryUrl") &&
+    project.hasProperty("artifactRepositoryUser") &&
+    project.hasProperty("artifactRepositoryToken")
+) {
+    configure<PublishingExtension> {
 
-publishing {
-    repositories {
-        maven {
-            url = uri(findProperty("artifactRepositoryUrl" as String?))
-            name = "project"
-            credentials {
-                username = findProperty("artifactRepositoryUser" as String?)
-                password = findProperty("artifactRepositoryToken" as String?)
-            }
-            authentication {
-                create("header", HeaderAuthentication::class.java)
+        repositories {
+            maven {
+                name = "project"
+                url = uri(project.findProperty("artifactRepositoryUrl").toString())
+                credentials {
+                    username = project.findProperty("artifactRepositoryUser").toString()
+                    password = project.findProperty("artifactRepositoryToken").toString()
+                }
+                authentication {
+                    create("HeaderAuthentication", HttpHeaderAuthentication::class.java)
+                }
             }
         }
-    }
-    publications {
-        create<MavenPublication>("maven") {
-            artifactId = group.replace(".", "-") + project.name
+        publications.create<MavenPublication>("maven") {
+            groupId = project.group as String
+            artifactId = (project.name).replace("-", ".")
+            version = project.version as String
+
             from(components["java"])
             artifact(tasks["sourcesJar"])
             artifact(tasks["javadocJar"])
-
             pom.withXml {
                 val root = asNode()
                 val nodes = root["dependencyManagement"] as groovy.util.NodeList
@@ -111,9 +115,10 @@ publishing {
                 }
             }
         }
-
     }
 }
+
+
 
 dependencies {
     implementation("org.slf4j:slf4j-api:2.0.5")

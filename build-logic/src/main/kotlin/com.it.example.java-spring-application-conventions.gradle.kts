@@ -12,4 +12,4 @@ plugins {
     application
 }
 
-application.mainClass.set(project.group)
+application.mainClass.set(project.name + ".Application")

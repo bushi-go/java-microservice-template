@@ -11,13 +11,13 @@ plugins {
 dependencies {
 
     // Internal modules dependencies
-    api(project(":domain:core"))
+    implementation(project(":domain:core"))
 
     implementation(project(":application:grpc:contract"))
-    implementation(project(":infrastruture:configuration"))
-    implementation(project(":infrastruture:persistence"))
-    implementation(project(":infrastruture:events"))
-    implementation(project(":infrastruture:clients"))
+    implementation(project(":infrastructure:configuration"))
+    implementation(project(":infrastructure:persistence"))
+    implementation(project(":infrastructure:events"))
+    implementation(project(":infrastructure:clients"))
 
     // External dependencies
 }

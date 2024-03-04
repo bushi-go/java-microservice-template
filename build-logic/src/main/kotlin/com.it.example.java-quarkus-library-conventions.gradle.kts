@@ -7,7 +7,7 @@
 plugins {
     // Apply the common convention plugin for shared build configuration between library and application projects.
     id("com.it.example.java-common-library-conventions")
-    id("com.it.example.quarkus-common-conventions")
+    id("com.it.example.java-quarkus-common-conventions")
 }
 
 dependencies {

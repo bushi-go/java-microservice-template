@@ -10,13 +10,8 @@ plugins {
 
 dependencies {
     // Internal modules dependencies
-    implementation(project(":domain:contract"))
+    api(project(":domain:contract"))
 
     // External dependencies
 
-}
-
-application {
-    // Define the main class for the application.
-    mainClass.set("com.it.example.app.App")
 }

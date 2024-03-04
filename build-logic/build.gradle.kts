@@ -13,3 +13,13 @@ repositories {
     // Use the plugin portal to apply community plugins in convention plugins.
     gradlePluginPortal()
 }
+
+val versionCatalog = extensions.getByType<VersionCatalogsExtension>().named("pluginLibs")
+
+dependencies {
+    versionCatalog.getBundleAliases().forEach { bundle ->
+        versionCatalog.findBundle(bundle).ifPresent {
+            implementation(it)
+        }
+    }
+}

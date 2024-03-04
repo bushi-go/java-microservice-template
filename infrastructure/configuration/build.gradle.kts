@@ -5,7 +5,7 @@
  */
 
 plugins {
-    id("com.it.example.java-library-conventions")
+    id("com.it.example.java-spring-library-conventions")
 }
 
 dependencies {
