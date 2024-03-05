@@ -32,6 +32,7 @@ include(
     // Those packages contains the code of the core of your application, embedding the business logic
     "domain:contract",
     "domain:core",
+    "domain:mediator",
     // Infrastructure packages
     // Those packages contains the code of the infrastructure of your application, like configuration, the database, async publishers, rest or grpc clients.
     "infrastructure:clients",

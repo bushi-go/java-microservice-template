@@ -7,11 +7,3 @@
 plugins {
     id("com.it.example.java-common-library-conventions")
 }
-
-dependencies {
-    // Internal modules dependencies
-    implementation(project(":domain:mediator"))
-
-    // External dependencies
-
-}
