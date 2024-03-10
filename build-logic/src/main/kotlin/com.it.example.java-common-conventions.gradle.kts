@@ -122,12 +122,12 @@ if (project.hasProperty("artifactRepositoryUrl") &&
 
 dependencies {
     implementation("org.slf4j:slf4j-api:2.0.5")
-    compileOnly("org.projectlombok:lombok:1.18.22")
-    annotationProcessor("org.projectlombok:lombok:1.18.22")
+    compileOnly("org.projectlombok:lombok:1.18.30")
+    annotationProcessor("org.projectlombok:lombok:1.18.30")
 
 
-    testCompileOnly("org.projectlombok:lombok:1.18.22")
-    testAnnotationProcessor("org.projectlombok:lombok:1.18.22")
+    testCompileOnly("org.projectlombok:lombok:1.18.30")
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.30")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
     testImplementation("org.assertj:assertj-core:3.25.3")

@@ -1,4 +1,4 @@
 package com.it.example.domain.contract.model.entity;
 
-public record ExampleEntity(String id) {
+public record ExampleEntity(String id, String name) {
 }

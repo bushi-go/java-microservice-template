@@ -11,6 +11,7 @@ plugins {
 dependencies {
 
     // Internal modules dependencies
+    implementation(project(":domain:contract"))
     implementation(project(":domain:core"))
 
     implementation(project(":application:rest:contract"))

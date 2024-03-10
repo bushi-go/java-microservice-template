@@ -1,6 +1,7 @@
 package com.it.example.domain.usecase;
 
 import com.it.example.domain.contract.action.query.ExampleQuery;
+import com.it.example.domain.contract.exception.ExampleNotFoundException;
 import com.it.example.domain.contract.model.dto.ExampleDto;
 import com.it.example.domain.contract.model.entity.ExampleEntity;
 import com.it.example.domain.contract.port.driven.ExamplePersistencePort;
@@ -15,8 +16,9 @@ public class ExampleReadHandler implements Handler<ExampleQuery, ExampleDto> {
 
     @Override
     public ExampleDto handle(ExampleQuery action) {
-        ExampleEntity entity = persistencePort.findById(action.id());
-        return new ExampleDto();
+        ExampleEntity entity = persistencePort.findById(action.id())
+                .orElseThrow(() -> new ExampleNotFoundException(action.id()));
+        return new ExampleDto(entity.id(), entity.name());
     }
 
     @Override

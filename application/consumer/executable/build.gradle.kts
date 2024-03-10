@@ -20,4 +20,6 @@ dependencies {
     implementation(project(":infrastructure:clients"))
 
     // External dependencies
+    implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.springframework.kafka:spring-kafka")
 }

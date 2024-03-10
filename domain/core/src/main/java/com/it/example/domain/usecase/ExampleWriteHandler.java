@@ -16,7 +16,7 @@ public class ExampleWriteHandler implements Handler<ExampleCommand, Void> {
 
     @Override
     public Void handle(ExampleCommand action) {
-        persistencePort.save(new ExampleEntity(UUID.randomUUID().toString()));
+        persistencePort.save(new ExampleEntity(UUID.randomUUID().toString(), action.name()));
         return null;
     }
 

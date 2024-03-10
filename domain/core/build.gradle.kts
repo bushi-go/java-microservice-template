@@ -11,7 +11,7 @@ plugins {
 dependencies {
     // Internal modules dependencies
     api(project(":domain:contract"))
-    implementation(project(":domain:mediator"))
+    api(project(":domain:mediator"))
 
     // External dependencies
 
