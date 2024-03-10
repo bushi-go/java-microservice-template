@@ -5,11 +5,15 @@
 
 quarkus = "3.8.1"
 jandex = "1.1.0"
+springBoot = "3.2.3"
+springBootDepsMgmt="1.1.4"
 
 [libraries]
 
 quarkus = { module = "io.quarkus:gradle-application-plugin", version.ref = "quarkus" }
 jandex = { module = "org.kordamp.gradle:jandex-gradle-plugin", version.ref = "jandex" }
-
+springBoot = {module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "springBoot"}
+springBootDepsMgmt = {module="io.spring.gradle:dependency-management-plugin",version.ref="springBootDepsMgmt"}
 [bundles]
 quarkus = ["quarkus", "jandex"]
+spring = ["springBoot", "springBootDepsMgmt"]

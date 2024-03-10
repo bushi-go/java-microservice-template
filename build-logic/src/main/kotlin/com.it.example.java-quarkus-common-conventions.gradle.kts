@@ -27,12 +27,6 @@ tasks.named<Checkstyle>("checkstyleMain"){
     dependsOn("jandex")
 }
 
-
-tasks.named<Checkstyle>("checkstyleTest"){
-    reports.xml.outputLocation.set(layout.buildDirectory.file("reports/checkstyle/test.xml").get())
-    reports.html.outputLocation.set(layout.buildDirectory.file("reports/checkstyle/test.html").get())
-}
-
 tasks.named<Javadoc>("javadoc") {
     dependsOn("jandex")
 }
