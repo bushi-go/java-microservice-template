@@ -10,3 +10,10 @@ dependencyManagement {
         mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
     }
 }
+
+dependencies {
+    implementation(enforcedPlatform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+}
+

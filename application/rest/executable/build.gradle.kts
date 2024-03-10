@@ -13,11 +13,12 @@ dependencies {
     // Internal modules dependencies
     implementation(project(":domain:core"))
 
-    implementation(project(":application:grpc:contract"))
+    implementation(project(":application:rest:contract"))
     implementation(project(":infrastructure:configuration"))
     implementation(project(":infrastructure:persistence"))
     implementation(project(":infrastructure:events"))
     implementation(project(":infrastructure:clients"))
 
     // External dependencies
+    implementation("org.springframework.boot:spring-boot-starter-web")
 }
